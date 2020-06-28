@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+tools:context=".QRCode_Generator">
+
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            style="@style/qr_card_view"
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_weight=".15"
+                    android:id="@+id/qr_g_shop_img_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/store_img_one" />
+
+                <TextView
+                    android:layout_weight=".85"
+                    android:id="@+id/qr_g_shop_tv_id"
+                    style="@style/qr_text_view_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Generate QRCode for Shops,Buildings" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/qr_card_view"
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_weight=".15"
+                    android:id="@+id/qr_g_vehicle_img_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/autoriksha" />
+
+                <TextView
+                    android:layout_weight=".85"
+                    android:id="@+id/qr_g_vehicle_tv_id"
+                    style="@style/qr_text_view_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Generate QRCode for Vehicle's" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

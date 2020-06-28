@@ -12,5 +12,21 @@
     <item name="cardBackgroundColor">#ffffff</item>
     </style>
 
+    <style name="qr_card_view" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="cardElevation">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="cardBackgroundColor">#ffffff</item>
+    </style>
+
+    <style name="qr_text_view_desc" parent="Widget.AppCompat.TextView">
+        <item name="android:paddingLeft">20dp</item>
+        <item name="fontFamily">@font/opensans</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.jcupzz.mycoviddiary;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class Main_Vp_Adapter extends PagerAdapter {
     Context context;
+    public static int main_pos;
     List<Main_Vp_Names> Main_Vp_names_list;
     LayoutInflater layoutInflater;
 
@@ -41,18 +43,24 @@ public class Main_Vp_Adapter extends PagerAdapter {
         layoutInflater = layoutInflater.from(context);
         View main_vp_view = layoutInflater.inflate(R.layout.main_vp_elements, container, false);
 
-        TextView textView;
+        TextView main_name_tv,main_tv_description;
         LottieAnimationView lottieAnimationView;
         lottieAnimationView = main_vp_view.findViewById(R.id.lottie_view_id);
-        textView = main_vp_view.findViewById(R.id.category_name_tv_id);
+        main_name_tv = main_vp_view.findViewById(R.id.category_name_tv_id);
+        main_tv_description = main_vp_view.findViewById(R.id.main_tv_description_id);
         lottieAnimationView.setAnimation(Main_Vp_names_list.get(position).getVp_image());
-        textView.setText(Main_Vp_names_list.get(position).getVp_name());
+        main_name_tv.setText(Main_Vp_names_list.get(position).getVp_name());
+        main_tv_description.setText(Main_Vp_names_list.get(position).getVp_description());
         container.addView(main_vp_view,0);
 
         main_vp_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),""+position,Toast.LENGTH_SHORT).show();
+                if(position==2)
+                {
+                    Intent intent1 = new Intent(v.getContext(),QRCode_Generator.class);
+                    v.getContext().startActivity(intent1);
+                }
             }
         });
 

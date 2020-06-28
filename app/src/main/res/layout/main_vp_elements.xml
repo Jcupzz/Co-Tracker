@@ -28,6 +28,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:weightSum="1"
                 android:orientation="vertical">
 
                 <com.airbnb.lottie.LottieAnimationView
@@ -37,6 +38,8 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
+                    android:paddingLeft="42sp"
+                    android:paddingRight="42sp"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/spider_lottie" />
@@ -46,14 +49,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/background"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="Example"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/main_tv_description_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="15dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/opensans"
+                    android:background="@color/background"
+                    android:textColor="@android:color/black"
+                    android:text="TextView" />
 
             </LinearLayout>
 

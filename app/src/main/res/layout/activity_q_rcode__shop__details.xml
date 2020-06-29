@@ -4,59 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".QRcode_Shop_Details">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView4"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter owner name" />
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Owner Name" />
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/qr_shop_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter owner name" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enter the address of shop" />
+            <EditText
+                android:id="@+id/g_qr_tv_name_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                style="@style/qr_et"
+                android:hint="Owner Name"
+                android:inputType="textPersonName"
+               />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Address....." />
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/qr_shop_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter the address of shop" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Contact Number" />
+            <EditText
+                style="@style/qr_et"
+                android:id="@+id/g_qr_tv_address_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Address....."
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/qr_shop_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact Number" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Generate QRCode" />
+            <EditText
+                android:id="@+id/g_qr_tv_num_id"
+                style="@style/qr_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/g_shop_qrcode_btn_id"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_background_green"
+                android:text="Generate QRCode" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

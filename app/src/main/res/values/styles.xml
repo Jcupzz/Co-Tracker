@@ -28,5 +28,18 @@
         <item name="android:paddingTop">15dp</item>
         <item name="android:paddingBottom">15dp</item>
     </style>
+    <style name="qr_shop_tv" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/opensans</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="qr_et" parent="Widget.AppCompat.EditText">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="background">@drawable/editext</item>
+
+    </style>
 
 </resources>

@@ -6,4 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".QRCode_Vehicle_Details">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/g_qr_licence_no_id"
+                android:layout_width="match_parent"
+                style="@style/qr_et"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Number plate number"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/g_vehicle_qrcode_btn_id"
+                android:layout_width="match_parent"
+                android:layout_marginTop="50dp"
+                android:layout_height="60dp"
+
+                android:background="@drawable/button_background_green"
+                android:text="Generate QRCode" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

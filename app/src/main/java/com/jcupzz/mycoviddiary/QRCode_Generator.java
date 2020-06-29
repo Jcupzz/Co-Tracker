@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 public class QRCode_Generator extends AppCompatActivity {
 ImageView qrcode_shop_img_btn,qrcode_vehicle_img_btn;
+public static int qr_decider=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,7 @@ ImageView qrcode_shop_img_btn,qrcode_vehicle_img_btn;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),QRCode_Vehicle_Details.class);
+                qr_decider=1;
                 startActivity(intent);
             }
         });
@@ -30,6 +32,7 @@ ImageView qrcode_shop_img_btn,qrcode_vehicle_img_btn;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),QRcode_Shop_Details.class);
+                qr_decider=2;
                 startActivity(intent);
             }
         });

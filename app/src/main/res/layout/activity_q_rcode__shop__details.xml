@@ -8,8 +8,10 @@
     tools:context=".QRcode_Shop_Details">
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,13 +37,12 @@
 
             <EditText
                 android:id="@+id/g_qr_tv_name_id"
+                style="@style/qr_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                style="@style/qr_et"
                 android:hint="Owner Name"
-                android:inputType="textPersonName"
-               />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -51,8 +52,8 @@
                 android:text="Enter the address of shop" />
 
             <EditText
-                style="@style/qr_et"
                 android:id="@+id/g_qr_tv_address_id"
+                style="@style/qr_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

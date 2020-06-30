@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".QRCode_Scanner">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".70"
+            app:lottie_autoPlay="true"
+            android:adjustViewBounds="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/qrcode_scan_lottie"
+            android:scaleType="fitCenter"
+            />
+
+        <Button
+            android:id="@+id/scan_btn_id"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight=".30"
+            android:background="@drawable/button_background_green"
+            android:fontFamily="@font/opensans"
+            android:text="Scan" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

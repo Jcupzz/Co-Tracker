@@ -36,11 +36,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:paddingLeft="42sp"
                     android:paddingRight="42sp"
                     app:lottie_autoPlay="true"
+                    android:adjustViewBounds="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/spider_lottie" />
 

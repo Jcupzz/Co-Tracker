@@ -1,10 +1,15 @@
 package com.jcupzz.mycoviddiary;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +21,26 @@ public class MainActivity extends AppCompatActivity {
     List<Main_Vp_Names> main_vp_list_names;
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        if(id==R.id.signOut_id)
+        {
+            FirebaseAuth.getInstance().signOut();
+            Intent myIntent = new Intent(MainActivity.this,  Login_Info.class);
+            MainActivity.this.startActivity(myIntent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         main_vp_list_names =new ArrayList<Main_Vp_Names>();
         main_vp_list_names.add(new Main_Vp_Names("Location","Place's you have visited",R.raw.location_lottie));
@@ -52,5 +74,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 }

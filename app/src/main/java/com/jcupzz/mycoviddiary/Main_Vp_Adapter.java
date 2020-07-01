@@ -60,6 +60,15 @@ public class Main_Vp_Adapter extends PagerAdapter {
         main_vp_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(position==0)
+                {
+                    Intent intent1 = new Intent(v.getContext(),TrackerActivity.class);
+                    v.getContext().startActivity(intent1);
+                    MainActivity.j=1;
+                    Intent intent = new Intent(v.getContext(),DisplayActivity.class);
+                    v.getContext().startActivity(intent);
+                }
                 if(position==2)
                 {
                     Intent intent1 = new Intent(v.getContext(),QRCode_Generator.class);
@@ -69,6 +78,11 @@ public class Main_Vp_Adapter extends PagerAdapter {
                 {
                     Intent i = new Intent(v.getContext(),QRCode_Scanner.class);
                     v.getContext().startActivity(i);
+                }
+                if(position==5)
+                {
+                    Intent intent1 = new Intent(v.getContext(),Footprints_Category.class);
+                    v.getContext().startActivity(intent1);
                 }
             }
         });

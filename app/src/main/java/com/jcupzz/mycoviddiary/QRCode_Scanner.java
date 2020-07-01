@@ -22,11 +22,16 @@ import android.widget.Toast;
 import com.blikoon.qrcodescanner.QrCodeActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 
 import es.dmoral.toasty.Toasty;
 
@@ -36,6 +41,7 @@ public class QRCode_Scanner extends AppCompatActivity {
     Button scan_btn;
     SharedPreferences shared;
     String result;
+    int i=1;
     String[] perms = {"android.permission.CAMERA","android.permission.READ_EXTERNAL_STORAGE"};
 
     int permsRequestCode = 200;
@@ -98,25 +104,28 @@ public class QRCode_Scanner extends AppCompatActivity {
          shared = getSharedPreferences("email_save", MODE_PRIVATE);
         String email_id = (shared.getString("email", ""));
 
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        String day = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());
 
-        Map<String, Object> user = new HashMap<>();
-        user.put("result",result);
 
-        db.collection(email_id)
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        Models data = new Models(result,Timestamp.now(),day,date);
+
+
+        db.collection(email_id).document(String.valueOf(Timestamp.now()))
+                .set(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onSuccess(Void aVoid) {
                         Toasty.success(getApplicationContext(), "Successfully Uploaded to Cloud", Toast.LENGTH_SHORT, true).show();
-                        // Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Log.w(TAG, "Error adding document", e);
+
                     }
                 });
+
 
     }
 
@@ -161,4 +170,6 @@ public class QRCode_Scanner extends AppCompatActivity {
         startActivityForResult( i,REQUEST_CODE_QR_SCAN);
         super.onRequestPermissionsResult(permsRequestCode, perms, grantResults);
     }
+
+
 }

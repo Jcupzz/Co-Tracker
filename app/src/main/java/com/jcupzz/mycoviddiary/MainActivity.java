@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     Main_Vp_Adapter adapter;
     List<Main_Vp_Names> main_vp_list_names;
-
+public static int j=0;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 

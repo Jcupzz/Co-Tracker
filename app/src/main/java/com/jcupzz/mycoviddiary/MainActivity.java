@@ -43,18 +43,20 @@ public static int j=0;
 
 
         main_vp_list_names =new ArrayList<Main_Vp_Names>();
-        main_vp_list_names.add(new Main_Vp_Names("Location","Place's you have visited",R.raw.location_lottie));
+        main_vp_list_names.add(new Main_Vp_Names("","",R.raw.spider_lottie));
+        main_vp_list_names.add(new Main_Vp_Names("Location","Places you have visited",R.raw.location_lottie));
         main_vp_list_names.add(new Main_Vp_Names("Number Plate Photography","Take photo's of number plate of vehicle's you have travelled",R.raw.car_lottie));
-        main_vp_list_names.add(new Main_Vp_Names("QRCode Generator","Generate QRCode for shops,vehicle's,buildings....",R.raw.qrcodegenerator_lottie));
+        main_vp_list_names.add(new Main_Vp_Names("QRCode Generator","Generate QRCode for shops,vehicle's,buildings....",R.raw.qr_generator_one_lottie));
         main_vp_list_names.add(new Main_Vp_Names("QRCode Scanner","Scan QRCodes",R.raw.qrcodescanner_lottie));
-        main_vp_list_names.add(new Main_Vp_Names("Visited People","Using bluetooth technology automatically identify people who came to contact with you",R.raw.spider_lottie));
+        main_vp_list_names.add(new Main_Vp_Names("Covid Today","Current covid status",R.raw.simple_covid_lottie));
         main_vp_list_names.add(new Main_Vp_Names("Your Footprints","History of places you have travelled",R.raw.footprint_one_lottie));
+        main_vp_list_names.add(new Main_Vp_Names("","",R.raw.spider_lottie));
 
         adapter = new Main_Vp_Adapter(this,main_vp_list_names);
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
         viewPager.setPadding(120, 0, 120, 0);
-        viewPager.setCurrentItem(0);
+        viewPager.setCurrentItem(1);
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -64,7 +66,15 @@ public static int j=0;
 
             @Override
             public void onPageSelected(int position) {
+                if(position==7)
+                {
+                    viewPager.setCurrentItem(1);
 
+                }
+                if(position==0)
+                {
+                    viewPager.setCurrentItem(6);
+                }
             }
 
             @Override
@@ -81,5 +91,10 @@ public static int j=0;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 }

@@ -3,41 +3,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/background"
     android:layout_height="match_parent"
     tools:context=".QRCode_Vehicle_Details">
 
-    <ScrollView
+    <EditText
+        android:id="@+id/g_qr_licence_no_id"
+        style="@style/qr_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Licence plate number"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/g_qr_licence_no_id"
-                android:layout_width="match_parent"
-                style="@style/qr_et"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Number plate number"
-                android:inputType="textPersonName" />
-
-            <Button
-                android:id="@+id/g_vehicle_qrcode_btn_id"
-                android:layout_width="match_parent"
-                android:layout_marginTop="50dp"
-                android:layout_height="60dp"
-
-                android:background="@drawable/button_background_green"
-                android:text="Generate QRCode" />
-        </LinearLayout>
-    </ScrollView>
+    <Button
+        android:id="@+id/g_vehicle_qrcode_btn_id"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/round_btn"
+        android:elevation="10dp"
+        android:foreground="@drawable/ic_baseline_navigate_next_24"
+        android:stateListAnimator="@null"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+    <TextView
+        android:id="@+id/textView"
+        style="@style/qr_shop_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="Enter licence plate number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35000000" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

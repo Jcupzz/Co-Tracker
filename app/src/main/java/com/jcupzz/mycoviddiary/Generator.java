@@ -1,11 +1,13 @@
 package com.jcupzz.mycoviddiary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -28,6 +31,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class Generator extends AppCompatActivity {
     String name,address;
@@ -35,14 +40,18 @@ public class Generator extends AppCompatActivity {
     ImageView qr;
     String licence_no;
 String qr_var;
-
+ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generator);
 
+constraintLayout = findViewById(R.id.cl_layout);
 
-        qr = findViewById(R.id.qr_id);
+
+
+
+                qr = findViewById(R.id.qr_id);
 
         Intent intent = getIntent();
         name = intent.getStringExtra("qr_name");
@@ -61,7 +70,7 @@ licence_no = intent.getStringExtra("qr_licence_no");
             qr_var = name+"\n"+address+"\n"+num;
         }
 
-        Toast.makeText(getApplicationContext(),"Take a Screenshot of this QRCode by pressing Volume Down button and power button together",Toast.LENGTH_LONG).show();
+        Toasty.info(getApplicationContext(),"Take a screenshot of this QRCode by pressing volume down button and power button together",Toasty.LENGTH_LONG,true).show();
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {

@@ -111,7 +111,7 @@ public class QRCode_Scanner extends AppCompatActivity {
         Models data = new Models(result,Timestamp.now(),day,date);
 
 
-        db.collection(email_id).document(String.valueOf(Timestamp.now()))
+        db.collection(email_id).document("scanner_result").collection("res").document(String.valueOf(Timestamp.now()))
                 .set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

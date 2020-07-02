@@ -34,7 +34,7 @@ tools:context=".QRCode_Generator">
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_weight=".15"
+                    android:layout_weight=".25"
                     android:id="@+id/qr_g_shop_img_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -43,7 +43,9 @@ tools:context=".QRCode_Generator">
                     android:src="@drawable/store_img_one" />
 
                 <TextView
-                    android:layout_weight=".85"
+                    android:layout_weight=".75"
+                    android:gravity="center"
+                    android:textAlignment="center"
                     android:id="@+id/qr_g_shop_tv_id"
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"
@@ -66,7 +68,7 @@ tools:context=".QRCode_Generator">
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_weight=".15"
+                    android:layout_weight=".25"
                     android:id="@+id/qr_g_vehicle_img_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -75,7 +77,9 @@ tools:context=".QRCode_Generator">
                     android:src="@drawable/autoriksha" />
 
                 <TextView
-                    android:layout_weight=".85"
+                    android:layout_weight=".75"
+                    android:textAlignment="center"
+                    android:gravity="center"
                     android:id="@+id/qr_g_vehicle_tv_id"
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".Footprints_Category">
 
     <LinearLayout
@@ -33,16 +34,18 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_weight=".15"
+                    android:layout_weight=".25"
                     android:id="@+id/fp_l_h_img_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/store_img_one" />
+                    android:src="@drawable/edited_location_history" />
 
                 <TextView
-                    android:layout_weight=".85"
+                    android:layout_weight=".75"
+                    android:gravity="center"
+                    android:textAlignment="center"
                     android:id="@+id/fp_l_h_tv_id"
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"
@@ -65,16 +68,18 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_weight=".15"
+                    android:layout_weight=".25"
                     android:id="@+id/fp_s_h_img_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/autoriksha" />
+                    android:src="@drawable/store_img_one" />
 
                 <TextView
-                    android:layout_weight=".85"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:layout_weight=".75"
                     android:id="@+id/fp_s_h_tv_id"
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"

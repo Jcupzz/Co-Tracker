@@ -27,8 +27,8 @@ public class Scanner_Adapter extends RecyclerView.Adapter<Scanner_ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Scanner_ViewHolder holder, int position) {
         holder.s_day.setText(ArrayListModels.get(position).getQr_day());
-        holder.s_date.setText(ArrayListModels.get(position).getQr_date());
-        holder.s_result.setText(ArrayListModels.get(position).getQr_result());
+        holder.s_date.setText("On "+ArrayListModels.get(position).getQr_date());
+        holder.s_result.setText("You have been to\n"+ArrayListModels.get(position).getQr_result());
     }
 
     @Override

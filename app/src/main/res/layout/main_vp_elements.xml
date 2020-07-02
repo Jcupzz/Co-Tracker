@@ -21,26 +21,29 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="50dp"
             android:background="@color/background"
-            app:cardElevation="7dp">
+            android:elevation="20dp"
+            android:stateListAnimator="@null"
+            android:translationZ="10dp"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="1">
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/lottie_view_id"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
                     android:paddingLeft="42sp"
                     android:paddingRight="42sp"
+                    android:scaleType="fitCenter"
                     app:lottie_autoPlay="true"
-                    android:adjustViewBounds="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/spider_lottie" />
 
@@ -61,14 +64,14 @@
                     android:id="@+id/main_tv_description_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="15dp"
-                    android:textAlignment="center"
                     android:fontFamily="@font/opensans"
-                    android:textColor="@android:color/darker_gray"
-                    android:text="TextView" />
+                    android:paddingLeft="30dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="30dp"
+                    android:paddingBottom="15dp"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
 

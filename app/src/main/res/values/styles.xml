@@ -57,5 +57,7 @@
         <item name="fontFamily">@font/opensans</item>
     </style>
 
+    <style name="splash_theme" parent="Theme.AppCompat.NoActionBar">
+    </style>
 
 </resources>

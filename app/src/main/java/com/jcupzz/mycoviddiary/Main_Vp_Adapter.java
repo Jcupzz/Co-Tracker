@@ -1,7 +1,9 @@
 package com.jcupzz.mycoviddiary;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.blikoon.qrcodescanner.QrCodeActivity;
+import com.google.android.gms.common.api.GoogleApi;
+import com.google.android.gms.location.LocationServices;
 
 import java.util.List;
 
@@ -20,10 +25,8 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class Main_Vp_Adapter extends PagerAdapter {
     Context context;
-    public static int main_pos;
     List<Main_Vp_Names> Main_Vp_names_list;
     LayoutInflater layoutInflater;
-    private static final int REQUEST_CODE_QR_SCAN = 101;
 
     public Main_Vp_Adapter(Context context, List<Main_Vp_Names> Main_Vp_names_list){
         this.context = context;
@@ -59,7 +62,7 @@ public class Main_Vp_Adapter extends PagerAdapter {
 
         main_vp_view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
 
                 if(position==1)
                 {

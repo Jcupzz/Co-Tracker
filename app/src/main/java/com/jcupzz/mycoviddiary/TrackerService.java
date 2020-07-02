@@ -152,7 +152,7 @@ public class TrackerService extends Service {
                                 .set(lati_longi_models).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toasty.success(getApplicationContext(),"Location Updated",Toasty.LENGTH_SHORT,true).show();
+                               // Toasty.success(getApplicationContext(),"Location Updated",Toasty.LENGTH_SHORT,true).show();
                             }
                         })
                                 .addOnFailureListener(new OnFailureListener() {

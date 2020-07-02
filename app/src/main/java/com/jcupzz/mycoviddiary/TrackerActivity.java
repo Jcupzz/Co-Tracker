@@ -10,6 +10,18 @@ import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
+
+import es.dmoral.toasty.Toasty;
+
 public class TrackerActivity extends Activity {
 
     private static final int PERMISSIONS_REQUEST = 1;
@@ -21,7 +33,7 @@ public class TrackerActivity extends Activity {
         // Check GPS is enabled
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (!lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            Toast.makeText(this, "Please enable location services", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enable location services in settings", Toast.LENGTH_SHORT).show();
             finish();
         }
 
@@ -36,6 +48,12 @@ public class TrackerActivity extends Activity {
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     PERMISSIONS_REQUEST);
         }
+
+        //location service request start:-
+
+
+        //-:end
+
     }
 
     private void startTrackerService() {

@@ -40,8 +40,8 @@ public class Location_History extends AppCompatActivity {
         setContentView(R.layout.activity_location__history);
 
         db = FirebaseFirestore.getInstance();
-lottieAnimationView = findViewById(R.id.l_animation_view);
-l_no_content = findViewById(R.id.l_no_content_id);
+        lottieAnimationView = findViewById(R.id.l_animation_view);
+        l_no_content = findViewById(R.id.l_no_content_id);
 
         shared = getSharedPreferences("email_save", MODE_PRIVATE);
         String email_id = (shared.getString("email", ""));
@@ -53,7 +53,7 @@ l_no_content = findViewById(R.id.l_no_content_id);
         if (downModelArrayList.size() > 0)
             downModelArrayList.clear();
 
-        Toasty.info(Location_History.this,"Click on cards to view the location on maps",Toasty.LENGTH_LONG,true).show();
+        Toasty.info(Location_History.this,"Tap on cards to view the location on maps",Toasty.LENGTH_LONG,true).show();
 
         db.collection(email_id)
                 .get()

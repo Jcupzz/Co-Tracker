@@ -38,9 +38,10 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans"
                     android:paddingLeft="20dp"
-                    android:paddingTop="10dp"
+                    android:paddingTop="15dp"
                     android:text="TextView"
-                    android:textColor="#E53935"
+                    android:textStyle="bold"
+                    android:textColor="@color/location_history_date_color"
                     android:textSize="36sp" />
 
                 <TextView
@@ -50,9 +51,9 @@
                     android:fontFamily="@font/opensans"
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+
                     android:text="TextView"
-                    android:textColor="#00897B"
+                    android:textColor="@color/location_history_day_color"
                     android:textSize="30sp" />
 
                 <TextView

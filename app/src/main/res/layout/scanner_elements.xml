@@ -39,7 +39,7 @@
                     android:paddingLeft="20dp"
                     android:paddingTop="10dp"
                     android:text="TextView"
-                    android:textColor="#E53935"
+                    android:textColor="@color/location_history_date_color"
                     android:textSize="36sp" />
 
                 <TextView
@@ -51,7 +51,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:text="TextView"
-                    android:textColor="#00897B"
+                    android:textColor="@color/location_history_day_color"
                     android:textSize="30sp" />
 
 

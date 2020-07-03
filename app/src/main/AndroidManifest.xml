@@ -21,10 +21,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Covid_Today"></activity>
-        <activity android:name=".Scanner_History" android:screenOrientation="portrait"/>
-        <activity android:name=".Location_History" android:screenOrientation="portrait"/>
-        <activity android:name=".Footprints_Category" android:screenOrientation="portrait"/>
+        <activity android:name=".QRCode_Docs"></activity>
+        <activity android:name=".Covid_Today" />
+        <activity
+            android:name=".Scanner_History"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Location_History"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Footprints_Category"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -47,8 +54,11 @@
             android:exported="true" />
 
         <activity android:name=".TrackerActivity" />
-        <activity android:name=".Already_Registered" android:screenOrientation="portrait"/>
-        <activity android:name=".Splash_Screen"
+        <activity
+            android:name=".Already_Registered"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Splash_Screen"
             android:screenOrientation="portrait"
             android:theme="@style/splash_theme">
             <intent-filter>
@@ -57,14 +67,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login_Info"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".QRCode_Scanner" android:screenOrientation="portrait"/>
-        <activity android:name=".Generator" android:screenOrientation="portrait"/>
-        <activity android:name=".QRCode_Vehicle_Details" android:screenOrientation="portrait"/>
-        <activity android:name=".QRcode_Shop_Details" android:screenOrientation="portrait"/>
-        <activity android:name=".QRCode_Generator" android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".Login_Info"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRCode_Scanner"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Generator"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRCode_Vehicle_Details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRcode_Shop_Details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRCode_Generator"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name=".MainActivity" />
 

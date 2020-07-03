@@ -72,22 +72,22 @@ public class Main_Vp_Adapter extends PagerAdapter {
                     Intent intent = new Intent(v.getContext(),DisplayActivity.class);
                     v.getContext().startActivity(intent);
                 }
-                if(position==3)
+                if(position==2)
                 {
                     Intent intent1 = new Intent(v.getContext(),QRCode_Generator.class);
                     v.getContext().startActivity(intent1);
                 }
-                if(position==4)
+                if(position==3)
                 {
                     Intent i = new Intent(v.getContext(),QRCode_Scanner.class);
                     v.getContext().startActivity(i);
                 }
-                if(position==5)
+                if(position==4)
                 {
                     Intent i = new Intent(v.getContext(),Covid_Today.class);
                     v.getContext().startActivity(i);
                 }
-                if(position==6)
+                if(position==5)
                 {
                     Intent intent1 = new Intent(v.getContext(),Footprints_Category.class);
                     v.getContext().startActivity(intent1);

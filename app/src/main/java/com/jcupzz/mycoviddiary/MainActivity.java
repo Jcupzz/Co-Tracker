@@ -46,7 +46,6 @@ public static int j=0;
         main_vp_list_names =new ArrayList<Main_Vp_Names>();
         main_vp_list_names.add(new Main_Vp_Names("","",R.raw.spider_lottie));
         main_vp_list_names.add(new Main_Vp_Names("Location","Places you have visited",R.raw.location_lottie));
-        main_vp_list_names.add(new Main_Vp_Names("Number Plate Photography","Take photo's of number plate of vehicle's you have travelled",R.raw.car_lottie));
         main_vp_list_names.add(new Main_Vp_Names("QRCode Generator","Generate QRCode for shops,vehicle's,buildings....",R.raw.qr_generator_one_lottie));
         main_vp_list_names.add(new Main_Vp_Names("QRCode Scanner","Scan QRCodes",R.raw.qrcodescanner_lottie));
         main_vp_list_names.add(new Main_Vp_Names("Covid Today","Current covid status",R.raw.simple_covid_lottie));
@@ -67,14 +66,14 @@ public static int j=0;
 
             @Override
             public void onPageSelected(int position) {
-                if(position==7)
+                if(position==6)
                 {
                     viewPager.setCurrentItem(1);
 
                 }
                 if(position==0)
                 {
-                    viewPager.setCurrentItem(6);
+                    viewPager.setCurrentItem(5);
                 }
             }
 

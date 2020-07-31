@@ -9,7 +9,7 @@ My Covid diary consists of the following features:-
     3.QRCode Scanner
     4.Covid Today
     
- 1.Location Tracker
+ # 1.Location Tracker
   
     ~Location Tracker tracks user location during every single minute and uploads the user location to cloud,which can 
     be viewed on google maps through the Footprints section.In Footprints section there is a location history section.
@@ -17,7 +17,7 @@ My Covid diary consists of the following features:-
 
 <!-------------------------------------------------------------------------------------------------------------------->  
 
- 2.QRCode Generator 
+ # 2.QRCode Generator 
 
   ~QRCode generator generates QRCodes.It generates QRCodes for Shops and Vehicles
   
@@ -35,7 +35,7 @@ My Covid diary consists of the following features:-
 
 <!--------------------------------------------------------------------------------------------------------------------->
 
- 3.QRCode Scanner
+ # 3.QRCode Scanner
   
     ~QRCode scanner isn't simply a scanner as it sounds.It is designed in a specific way that it flawlessly scans the QRCode
     and also uploads the scanned QRCode details to cloud.It can be used to scan the previosly generated QRCode and uploads

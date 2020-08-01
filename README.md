@@ -44,6 +44,7 @@ My covid diary consists of the following features:-
     that it flawlessly scans the QRCode and also uploads the scanned QRCode details to cloud.
     It can be used to scan the previosly generated QRCode and uploads the scanned time,date,day
     including the details of shops or vehicles you have travelled.
+    
     ~This scanned details are available in the Footprints section under history of shops or 
     vehicles you have travelled.
 

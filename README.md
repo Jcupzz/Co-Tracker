@@ -4,10 +4,10 @@ My covid diary is just like a diary.It's an effective measure to overcome the gl
 
 My covid diary consists of the following features:-
 
-  #  1.Location Tracker
-  #  2.QRCode Generator
-  #  3.QRCode Scanner
-  #  4.Covid Today
+     1.Location Tracker
+     2.QRCode Generator
+     3.QRCode Scanner
+     4.Covid Today
     
  # 1.Location Tracker
   

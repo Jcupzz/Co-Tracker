@@ -25,15 +25,15 @@ My covid diary consists of the following features:-
   
       --QRCode generator for Shops
           
-          -QRCode generator for shops takes shop owner name,shop address and Contact 
-          number as inputs and generates a combined string QRCode using those values.
+          -QRCode generator for shops takes shop owner name,shop address and contact 
+          number as input and generates a combined string QRCode using those values.
           -A Screenshot of this generated QRcode can be taken and can be placed infront 
           of shops/supermarkets where it is convenient for people to scan the QRCode.
       
       --QRCode generator for Vehicles
           
-          -QRcode generator for vehicles works as the same way as QRcode generator for 
-          Shops.Instead of shop details this takes vehicle licence plate number as inputs 
+          -QRcode generator for vehicles works in the same way as QRcode generator for 
+          Shops.Instead of shop details this takes vehicle licence plate number as input 
           and generates QRCode.
 
 <!--------------------------------------------------------------------------------------------------------------------->
@@ -41,8 +41,8 @@ My covid diary consists of the following features:-
  # 3.QRCode Scanner
   
     ~QRCode scanner isn't simply a scanner as it sounds.It is designed in a specific way 
-    that it flawlessly scans the QRCode and also uploads the scanned QRCode details to cloud.
-    It can be used to scan the previosly generated QRCode and uploads the scanned time,date,day
+    such that it flawlessly scans the QRCode and also uploads the scanned QRCode details to cloud.
+    It can be used to scan the previously generated QRCode and uploads the scanned time,date,day
     including the details of shops or vehicles you have travelled.
     
     ~This scanned details are available in the Footprints section under history of shops or 

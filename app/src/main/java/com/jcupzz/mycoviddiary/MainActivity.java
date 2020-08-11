@@ -49,6 +49,7 @@ public static int j=0;
         main_vp_list_names.add(new Main_Vp_Names("QRCode Generator","Generate QRCode for shops,vehicle's,buildings....",R.raw.qr_generator_one_lottie));
         main_vp_list_names.add(new Main_Vp_Names("QRCode Scanner","Scan QRCodes",R.raw.qrcodescanner_lottie));
         main_vp_list_names.add(new Main_Vp_Names("Covid Today","Current covid status",R.raw.simple_covid_lottie));
+        main_vp_list_names.add(new Main_Vp_Names("Add Places","Add places you have visited manually",R.raw.addplacesvisited_lottie));
         main_vp_list_names.add(new Main_Vp_Names("Your Footprints","History of places you have travelled",R.raw.footprint_one_lottie));
         main_vp_list_names.add(new Main_Vp_Names("","",R.raw.spider_lottie));
 
@@ -66,14 +67,14 @@ public static int j=0;
 
             @Override
             public void onPageSelected(int position) {
-                if(position==6)
+                if(position==7)
                 {
                     viewPager.setCurrentItem(1);
 
                 }
                 if(position==0)
                 {
-                    viewPager.setCurrentItem(5);
+                    viewPager.setCurrentItem(6);
                 }
             }
 

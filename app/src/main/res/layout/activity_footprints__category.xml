@@ -50,7 +50,7 @@
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Location history of places you have travelled" />
+                    android:text="@string/location_history_of_places_you_have_travelled" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -84,7 +84,7 @@
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="History of shop/vehicle's you have travelled" />
+                    android:text="@string/history_of_shop_vehicle_s_you_have_travelled" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

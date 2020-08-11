@@ -50,7 +50,7 @@ tools:context=".QRCode_Generator">
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Generate QRCode for Shops,Buildings" />
+                    android:text="@string/generate_qrcode_for_shops_buildings" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -84,7 +84,7 @@ tools:context=".QRCode_Generator">
                     style="@style/qr_text_view_desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Generate QRCode for Vehicle's" />
+                    android:text="@string/generate_qrcode_for_vehicle_s" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

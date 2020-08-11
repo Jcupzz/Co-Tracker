@@ -2,8 +2,24 @@
     <string name="app_name">My Covid Diary</string>
     <string name="notification_text">The app is using your current location</string>
     <string name="title_activity_display">Map</string>
-    <string name="_1_generate_qrcodes_for_shops_and_public_vehicle_s_by_entering_the_details_in_the_form_n2_take_screenshot_and_print_it_n3_take_the_print_out_and_paste_it_infront_of_shop_s_or_vehicle_s_where_it_is_visible_for_people_to_scan_it">1.Generate QRCodes for shops and public vehicle\'s by entering the details in the form.\n2.Take Screenshot and print it.\n3.Take the print out and paste it infront of shop\'s or vehicle\'s where it is visible for people to scan it.</string>
-    <string name="working_n_as_user_scan_s_a_qrcode_infront_of_shop_s_or_vehicle_n1_time_day_of_scanning_and_address_of_the_shop_will_be_updated_to_cloud_n2_incase_of_vehicle_s_licence_number_will_be_updated_to_cloud">Working:\n As user scan\'s a qrcode infront of shop\'s or vehicle\n1.Time,Day of scanning and Address of the shop will be updated to cloud.\n2.Incase of vehicle\'s licence number will be updated to cloud</string>
+    <string name="gone">1.Generate QRCodes for shops and public vehicle\'s by entering the details in the form.\n2.Take Screenshot and print it.\n3.Take the print out and paste it infront of shop\'s or vehicle\'s where it is visible for people to scan it.</string>
+    <string name="gtwo">Working:\n As user scan\'s a qrcode infront of shop\'s or vehicle\n1.Time,Day of scanning and Address of the shop will be updated to cloud.\n2.Incase of vehicle\'s licence number will be updated to cloud</string>
     <string name="todo">TODO</string>
     <string name="dsd">TODO</string>
+    <string name="location_history_of_places_you_have_travelled">Location history of places you have travelled</string>
+    <string name="history_of_shop_vehicle_s_you_have_travelled">History of shop/vehicle\'s you have travelled</string>
+    <string name="no">NO CONTENT\n\nGoto to Location in the MainActivity\nand turn on location service\nto see your location history</string>
+    <string name="my_covid_diary">My Covid Diary</string>
+    <string name="generate_qrcode_for_shops_buildings">Generate QRCode for Shops,Buildings</string>
+    <string name="generate_qrcode_for_vehicle_s">Generate QRCode for Vehicle\'s</string>
+    <string name="scan">Scan</string>
+    <string name="enter_licence_plate_number">Enter licence plate number</string>
+    <string name="enter_owner_name">Enter owner name</string>
+    <string name="owner_name">Owner Name</string>
+    <string name="enter_the_address_of_shop">Enter the address of shop</string>
+    <string name="address">Address.....</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="no_content_n_nscan_qrcodes_to_see_history">NO CONTENT\n\nScan QRCodes to see history</string>
+
+    
 </resources>

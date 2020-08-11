@@ -44,7 +44,7 @@
         android:paddingTop="10dp"
         android:paddingRight="20dp"
         android:paddingBottom="10dp"
-        android:text="NO CONTENT\n\nGoto to Location in the MainActivity\nand turn on location service\nto see your location history"
+        android:text="@string/no"
         android:textAlignment="center"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/recycle"

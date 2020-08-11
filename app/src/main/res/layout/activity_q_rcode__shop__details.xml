@@ -52,7 +52,7 @@
                 style="@style/qr_shop_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter owner name" />
+                android:text="@string/enter_owner_name" />
 
             <EditText
                 android:id="@+id/g_qr_tv_name_id"
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Owner Name"
+                android:hint="@string/owner_name"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -68,7 +68,7 @@
                 style="@style/qr_shop_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter the address of shop" />
+                android:text="@string/enter_the_address_of_shop" />
 
             <EditText
                 android:id="@+id/g_qr_tv_address_id"
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Address....."
+                android:hint="@string/address"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -84,7 +84,7 @@
                 style="@style/qr_shop_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contact Number" />
+                android:text="@string/contact_number" />
 
             <EditText
                 android:id="@+id/g_qr_tv_num_id"

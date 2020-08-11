@@ -42,7 +42,7 @@
         android:paddingTop="10dp"
         android:paddingRight="20dp"
         android:paddingBottom="10dp"
-        android:text="NO CONTENT\n\nScan QRCodes to see history"
+        android:text="@string/no_content_n_nscan_qrcodes_to_see_history"
         android:textAlignment="center"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/s_recycle"

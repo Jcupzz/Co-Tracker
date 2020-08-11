@@ -89,6 +89,11 @@ public class Main_Vp_Adapter extends PagerAdapter {
                 }
                 if(position==5)
                 {
+                    Intent intent1 = new Intent(v.getContext(),AddPlacesManually.class);
+                    v.getContext().startActivity(intent1);
+                }
+                if(position==6)
+                {
                     Intent intent1 = new Intent(v.getContext(),Footprints_Category.class);
                     v.getContext().startActivity(intent1);
                 }

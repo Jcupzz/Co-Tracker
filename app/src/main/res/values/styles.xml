@@ -8,8 +8,8 @@
     </style>
 
     <style name="card" parent="Widget.MaterialComponents.CardView">
-    <item name="cardCornerRadius">30dp</item>
-    <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">30dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
     </style>
 
     <style name="qr_card_view" parent="Widget.MaterialComponents.CardView">
@@ -28,6 +28,7 @@
         <item name="android:paddingTop">15dp</item>
         <item name="android:paddingBottom">15dp</item>
     </style>
+
     <style name="qr_shop_tv" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">18sp</item>
         <item name="android:layout_marginLeft">30dp</item>
@@ -58,6 +59,8 @@
     </style>
 
     <style name="splash_theme" parent="Theme.AppCompat.NoActionBar">
+
     </style>
+
 
 </resources>

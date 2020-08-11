@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QRCode_Docs"></activity>
+        <activity android:name=".AddPlacesManually"></activity>
+        <activity android:name=".QRCode_Docs" />
         <activity android:name=".Covid_Today" />
         <activity
             android:name=".Scanner_History"

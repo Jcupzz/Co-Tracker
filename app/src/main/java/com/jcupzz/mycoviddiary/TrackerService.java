@@ -1,23 +1,7 @@
 package com.jcupzz.mycoviddiary;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
-
+import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -29,8 +13,9 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
-import android.Manifest;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
@@ -39,31 +24,47 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Random;
 
 import es.dmoral.toasty.Toasty;
 
 public class TrackerService extends Service {
 
     private static final String TAG = TrackerService.class.getSimpleName();
-    FirebaseFirestore db,live_db;
+    FirebaseFirestore db, live_db;
     SharedPreferences shared;
-
+    SharedPreferences sharedPreferences;
+    String address;
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
     @Override
-    public IBinder onBind(Intent intent) {return null;}
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
     @Override
     public void onCreate() {
 
         super.onCreate();
+
+
         db = FirebaseFirestore.getInstance();
         live_db = FirebaseFirestore.getInstance();
         buildNotification();
@@ -85,7 +86,7 @@ public class TrackerService extends Service {
         }
 
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,channel)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channel)
                 .setContentTitle(getString(R.string.app_name))
                 .setContentText(getString(R.string.notification_text))
                 .setOngoing(true)
@@ -114,8 +115,7 @@ public class TrackerService extends Service {
     private void requestLocationUpdates() {
 
         LocationRequest request = new LocationRequest();
-        request.setInterval(60000);
-        request.setFastestInterval(5000);
+        request.setInterval(900000);//900000
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(this);
 
@@ -128,7 +128,12 @@ public class TrackerService extends Service {
             client.requestLocationUpdates(request, new LocationCallback() {
                 @Override
                 public void onLocationResult(LocationResult locationResult) {
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("locations/123");
+
+                    sharedPreferences = getSharedPreferences("uid_save", MODE_PRIVATE);
+                    String uid = (sharedPreferences.getString("uid", "uid_shareprefs_crashed"));
+
+
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("locations/"+uid);
                     Location location = locationResult.getLastLocation();
                     if (location != null) {
                         Log.d(TAG, "location update " + location);
@@ -140,25 +145,45 @@ public class TrackerService extends Service {
                         String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                         String day = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis());
 
-                        Lati_Longi_Models lati_longi_models = new Lati_Longi_Models(Timestamp.now(),day,date,lati,longi);
+                        Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+                        try {
+                            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                            Address obj = addresses.get(0);
+                            address = obj.getAddressLine(0)+"\n";
+                            address = address + "\n" + "Locality: " + obj.getLocality()+"\n";
+                            address = address + "\n" + "District: " +obj.getSubAdminArea()+"\n";
+                            address = address + "\n" + "State: " +obj.getAdminArea()+"\n";
+                            address = address + "\n" + "PostalCode: " +obj.getPostalCode()+"\n";
+                            address = address + "\n" + "Country: " +obj.getCountryName();
+
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        if (address == null || address.length() == 0) {
+                            address = "Address not found";
+                        }
+
+
+                        Lati_Longi_Models lati_longi_models = new Lati_Longi_Models(Timestamp.now(), day, date, lati, longi, address);
 
                         shared = getSharedPreferences("email_save", MODE_PRIVATE);
                         String email_id = (shared.getString("email", ""));
 
 
-                   //     String rand = randomString(6);
+                        //     String rand = randomString(6);
 
                         db.collection(email_id).document(String.valueOf(Timestamp.now()))
                                 .set(lati_longi_models).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                               // Toasty.success(getApplicationContext(),"Location Updated",Toasty.LENGTH_SHORT,true).show();
+                                // Toasty.success(getApplicationContext(),"Location Updated",Toasty.LENGTH_SHORT,true).show();
                             }
                         })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toasty.error(getApplicationContext(),"Error!",Toasty.LENGTH_SHORT,true).show();
+                                        Toasty.error(getApplicationContext(), "Error!", Toasty.LENGTH_SHORT, true).show();
                                     }
                                 });
 
@@ -169,6 +194,7 @@ public class TrackerService extends Service {
 
 
     }
+
     @NonNull
     @TargetApi(26)
     private synchronized String createChannel() {

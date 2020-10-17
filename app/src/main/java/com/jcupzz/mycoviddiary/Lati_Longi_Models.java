@@ -4,17 +4,24 @@ import com.google.firebase.Timestamp;
 
 public class Lati_Longi_Models {
 
-    Timestamp timestamp;
 
-    public Lati_Longi_Models(Timestamp timestamp, String day, String date, String lati_S, String longi_S) {
+    Timestamp timestamp;
+    public Lati_Longi_Models(Timestamp timestamp, String day, String date, String lati_S, String longi_S,String address) {
         this.timestamp = timestamp;
         this.day = day;
         this.date = date;
         this.lati_S = lati_S;
         this.longi_S = longi_S;
+        this.address = address;
     }
 
+    String address;
     String day;
+    String date;
+    String lati_S;
+    String longi_S;
+
+
 
     public String getDay() {
         return day;
@@ -33,8 +40,14 @@ public class Lati_Longi_Models {
     }
 
 
+    public String getAddress() {
+        return address;
+    }
 
-    String date;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 
     public Timestamp getTimestamp() {
         return timestamp;
@@ -61,9 +74,6 @@ public class Lati_Longi_Models {
     public void setLongi_S(String longi_S) {
         this.longi_S = longi_S;
     }
-
-    String lati_S;
-    String longi_S;
 
 
 }

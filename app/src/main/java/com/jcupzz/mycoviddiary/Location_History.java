@@ -64,7 +64,7 @@ public class Location_History extends AppCompatActivity {
 
 
                             for (DocumentSnapshot documentSnapshot : (task.getResult())) {
-                                Lati_Longi_Models lati_longi_models = new Lati_Longi_Models(documentSnapshot.getTimestamp("timestamp"), documentSnapshot.getString("day"), documentSnapshot.getString("date"), documentSnapshot.getString("lati_S"), documentSnapshot.getString("longi_S"));
+                                Lati_Longi_Models lati_longi_models = new Lati_Longi_Models(documentSnapshot.getTimestamp("timestamp"), documentSnapshot.getString("day"), documentSnapshot.getString("date"), documentSnapshot.getString("lati_S"), documentSnapshot.getString("longi_S"),documentSnapshot.getString("address"));
                                 downModelArrayList.add(lati_longi_models);
                             }
                         }

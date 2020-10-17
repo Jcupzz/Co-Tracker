@@ -66,8 +66,6 @@ public class Main_Vp_Adapter extends PagerAdapter {
 
                 if(position==1)
                 {
-                    Intent intent1 = new Intent(v.getContext(),TrackerActivity.class);
-                    v.getContext().startActivity(intent1);
                     MainActivity.j=1;
                     Intent intent = new Intent(v.getContext(),DisplayActivity.class);
                     v.getContext().startActivity(intent);
@@ -77,22 +75,16 @@ public class Main_Vp_Adapter extends PagerAdapter {
                     Intent intent1 = new Intent(v.getContext(),QRCode_Generator.class);
                     v.getContext().startActivity(intent1);
                 }
-                if(position==3)
-                {
-                    Intent i = new Intent(v.getContext(),QRCode_Scanner.class);
+                if(position==3) {
+                    Intent i = new Intent(v.getContext(), QRCode_Scanner.class);
                     v.getContext().startActivity(i);
                 }
                 if(position==4)
                 {
-                    Intent i = new Intent(v.getContext(),Covid_Today.class);
-                    v.getContext().startActivity(i);
-                }
-                if(position==5)
-                {
-                    Intent intent1 = new Intent(v.getContext(),AddPlacesManually.class);
+                    Intent intent1 = new Intent(v.getContext(),AddPlacesMain.class);
                     v.getContext().startActivity(intent1);
                 }
-                if(position==6)
+                if(position==5)
                 {
                     Intent intent1 = new Intent(v.getContext(),Footprints_Category.class);
                     v.getContext().startActivity(intent1);

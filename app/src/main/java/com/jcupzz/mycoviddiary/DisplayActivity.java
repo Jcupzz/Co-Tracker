@@ -3,6 +3,7 @@ package com.jcupzz.mycoviddiary;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -36,6 +37,8 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
     private static final String TAG = DisplayActivity.class.getSimpleName();
     private HashMap<String, Marker> mMarkers = new HashMap<>();
     private GoogleMap mMap;
+    SharedPreferences shared;
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
 @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +65,14 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
 
     private void subscribeToUpdates() {
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("locations/123");
-ValueEventListener valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+        shared = getSharedPreferences("email_save", MODE_PRIVATE);
+        String email_id = (shared.getString("email", "crashed"));
+
+        shared = getSharedPreferences("uid_save",MODE_PRIVATE);
+        String uid = (shared.getString("uid","sharedprefs_crashed_uid"));
+
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("locations/"+uid);
+    ValueEventListener valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
 setMarker(snapshot);

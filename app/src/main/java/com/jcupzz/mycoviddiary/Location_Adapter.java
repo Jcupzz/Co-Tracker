@@ -34,7 +34,6 @@ holder.day.setText(downModels.get(position).getDay());
 holder.date.setText(downModels.get(position).getDate());
 holder.longitude.setText( "Longitude:"+downModels.get(position).getLongi_S());
 holder.lattitude.setText("Latitude:"+downModels.get(position).getLati_S());
-holder.address.setText("Address: "+downModels.get(position).getAddress());
 holder.cardView.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {

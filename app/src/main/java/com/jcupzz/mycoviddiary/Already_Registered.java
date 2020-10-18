@@ -78,12 +78,7 @@ public class Already_Registered extends AppCompatActivity {
 
 
                 if (task.isSuccessful()) {
-                    String userID;
-                    userID = firebaseAuth.getCurrentUser().getUid();
-                    SharedPreferences sharedPreferencesss = getSharedPreferences("uid_save", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferencesss.edit();
-                    editor.putString("uid", userID);
-                    editor.commit();
+
                     Toasty.success(Already_Registered.this, "Login Successful", Toast.LENGTH_SHORT, true).show();
                     finish();
                     startActivity(new Intent(Already_Registered.this, MainActivity.class));

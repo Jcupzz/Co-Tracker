@@ -72,15 +72,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans"
                     android:paddingLeft="20dp"
-                    android:paddingBottom="10dp"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/address_tv_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans"
-                    android:paddingLeft="20dp"
                     android:paddingBottom="15dp"
                     android:text="TextView" />
             </LinearLayout>

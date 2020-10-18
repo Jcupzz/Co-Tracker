@@ -34,7 +34,7 @@ public class Login_Info extends AppCompatActivity {
     TextView already_registered;
     SharedPreferences sharedPreferences;
     EditText mEmail, mPassword;
-    public static String userID;
+    static String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,10 +90,7 @@ public class Login_Info extends AppCompatActivity {
 
                             Toasty.success(Login_Info.this, "User Created", Toast.LENGTH_SHORT, true).show();
                             userID = fAuth.getCurrentUser().getUid();
-                            SharedPreferences sharedPreferences = getSharedPreferences("uid_save", MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("uid", userID);
-                            editor.commit();
+
                             Intent intent = new Intent(Login_Info.this,MainActivity.class);
                             startActivity(intent);
 

@@ -1,8 +1,5 @@
 package com.jcupzz.mycoviddiary;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,20 +8,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 
 import es.dmoral.toasty.Toasty;
 
 public class Already_Registered extends AppCompatActivity {
     Button in;
     private FirebaseAuth firebaseAuth;
-    String userID;
     private EditText name;
     private EditText pass;
     SharedPreferences sharedPreferences;
@@ -36,16 +33,15 @@ public class Already_Registered extends AppCompatActivity {
 
         in = findViewById(R.id.al_in);
 
-        name =  findViewById(R.id.edUID);
-        pass =  findViewById(R.id.edUPASS);
+        name = findViewById(R.id.edUID);
+        pass = findViewById(R.id.edUPASS);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
 
-      //  getSharedPreferences("email_save", MODE_PRIVATE).edit().putString("email",emails).commit();
-
+        //  getSharedPreferences("email_save", MODE_PRIVATE).edit().putString("email",emails).commit();
 
 
         if (user != null) {
@@ -63,6 +59,15 @@ public class Already_Registered extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("email", email);
                 editor.commit();
+
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                Login_Info.userID = currentUser.getUid();
+
+                SharedPreferences save_uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
+                SharedPreferences.Editor uid_editor = save_uid_sharedprefs.edit();
+                uid_editor.putString("uid", Login_Info.userID);
+                uid_editor.commit();
+
                 validate(name.getText().toString().trim(), pass.getText().toString().trim());
 
             }
@@ -78,17 +83,11 @@ public class Already_Registered extends AppCompatActivity {
 
 
                 if (task.isSuccessful()) {
-                    String userID;
-                    userID = firebaseAuth.getCurrentUser().getUid();
-                    SharedPreferences sharedPreferencesss = getSharedPreferences("uid_save", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferencesss.edit();
-                    editor.putString("uid", userID);
-                    editor.commit();
+
                     Toasty.success(Already_Registered.this, "Login Successful", Toast.LENGTH_SHORT, true).show();
                     finish();
                     startActivity(new Intent(Already_Registered.this, MainActivity.class));
-                }
-                else{
+                } else {
                     Toasty.error(Already_Registered.this, "Login Failed", Toast.LENGTH_SHORT, true).show();
                 }
 
@@ -100,14 +99,11 @@ public class Already_Registered extends AppCompatActivity {
     }
 
 
-
-
-
-@Override
-public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(),Login_Info.class);
+        Intent intent = new Intent(getApplicationContext(), Login_Info.class);
         startActivity(intent);
         finish();
-        }
-        }
+    }
+}

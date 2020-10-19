@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -37,7 +38,8 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
     private static final String TAG = DisplayActivity.class.getSimpleName();
     private HashMap<String, Marker> mMarkers = new HashMap<>();
     private GoogleMap mMap;
-    SharedPreferences shared;
+    String uid;
+    SharedPreferences uid_sharedprefs;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +67,14 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
 
     private void subscribeToUpdates() {
 
-        shared = getSharedPreferences("email_save", MODE_PRIVATE);
-        String email_id = (shared.getString("email", "crashed"));
+//        shared = getSharedPreferences("email_save", MODE_PRIVATE);
+//        String email_id = (shared.getString("email", "crashed"));
 
-        shared = getSharedPreferences("uid_save",MODE_PRIVATE);
-        String uid = (shared.getString("uid","sharedprefs_crashed_uid"));
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("locations/"+uid);
+//        uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
+//        uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Login_Info.userID);
     ValueEventListener valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {

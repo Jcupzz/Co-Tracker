@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import es.dmoral.toasty.Toasty;
 
@@ -89,11 +90,13 @@ public class Login_Info extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             Toasty.success(Login_Info.this, "User Created", Toast.LENGTH_SHORT, true).show();
-                            userID = fAuth.getCurrentUser().getUid();
-                            SharedPreferences sharedPreferences = getSharedPreferences("uid_save", MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("uid", userID);
-                            editor.commit();
+
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            userID = currentUser.getUid();
+                            SharedPreferences save_uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
+                            SharedPreferences.Editor uid_editor = save_uid_sharedprefs.edit();
+                            uid_editor.putString("uid", userID);
+                            uid_editor.commit();
                             Intent intent = new Intent(Login_Info.this,MainActivity.class);
                             startActivity(intent);
 

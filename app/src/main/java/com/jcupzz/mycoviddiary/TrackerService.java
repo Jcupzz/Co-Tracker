@@ -50,7 +50,7 @@ public class TrackerService extends Service {
     private static final String TAG = TrackerService.class.getSimpleName();
     FirebaseFirestore db, live_db;
     SharedPreferences shared;
-    SharedPreferences sharedPreferences;
+    SharedPreferences uid_sharedprefs;
     String address;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
@@ -129,11 +129,11 @@ public class TrackerService extends Service {
                 @Override
                 public void onLocationResult(LocationResult locationResult) {
 
-                    sharedPreferences = getSharedPreferences("uid_save", MODE_PRIVATE);
-                    String uid = (sharedPreferences.getString("uid", "uid_shareprefs_crashed"));
+//                    uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
+//                    String uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
 
 
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("locations/"+uid);
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Login_Info.userID);
                     Location location = locationResult.getLastLocation();
                     if (location != null) {
                         Log.d(TAG, "location update " + location);

@@ -94,7 +94,6 @@ public class Login_Info extends AppCompatActivity {
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                             userID = currentUser.getUid().trim();
 
-                            Toast.makeText(getApplicationContext(),userID,Toast.LENGTH_LONG).show();
                             SharedPreferences save_uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
                             SharedPreferences.Editor uid_editor = save_uid_sharedprefs.edit();
                             uid_editor.putString("uid", userID);

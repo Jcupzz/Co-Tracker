@@ -117,7 +117,7 @@ public class TrackerService extends Service {
     private void requestLocationUpdates() {
 
         LocationRequest request = new LocationRequest();
-        request.setInterval(60000);//900000
+        request.setInterval(600000);//900000
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(this);
 
@@ -135,7 +135,6 @@ public class TrackerService extends Service {
                     uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
                     uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
 
-                    Toast.makeText(getApplicationContext(),uid,Toast.LENGTH_SHORT).show();
 
 
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference(uid);

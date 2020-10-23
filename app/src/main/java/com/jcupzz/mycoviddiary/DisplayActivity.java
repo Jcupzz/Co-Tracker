@@ -77,7 +77,6 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
         uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
         uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
 
-        Toast.makeText(getApplicationContext(), uid, Toast.LENGTH_LONG).show();
 
         if(uid!=null) {
 

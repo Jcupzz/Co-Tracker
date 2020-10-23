@@ -50,12 +50,6 @@
             android:name=".DisplayActivity"
             android:label="@string/title_activity_display" />
 
-        <receiver android:name=".NetworkChangeReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
         <service
             android:name=".TrackerService"
             android:enabled="true"

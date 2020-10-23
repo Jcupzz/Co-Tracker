@@ -1,8 +1,10 @@
 package com.jcupzz.mycoviddiary;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +20,14 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.blikoon.qrcodescanner.QrCodeActivity;
 import com.google.android.gms.common.api.GoogleApi;
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
+
+import static android.content.Context.MODE_PRIVATE;
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class Main_Vp_Adapter extends PagerAdapter {
@@ -28,7 +35,7 @@ public class Main_Vp_Adapter extends PagerAdapter {
     List<Main_Vp_Names> Main_Vp_names_list;
     LayoutInflater layoutInflater;
 
-    public Main_Vp_Adapter(Context context, List<Main_Vp_Names> Main_Vp_names_list){
+    public Main_Vp_Adapter(Context context, List<Main_Vp_Names> Main_Vp_names_list) {
         this.context = context;
         this.Main_Vp_names_list = Main_Vp_names_list;
     }
@@ -40,7 +47,7 @@ public class Main_Vp_Adapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((View)object);
+        container.removeView((View) object);
     }
 
     @NonNull
@@ -50,7 +57,7 @@ public class Main_Vp_Adapter extends PagerAdapter {
         layoutInflater = layoutInflater.from(context);
         View main_vp_view = layoutInflater.inflate(R.layout.main_vp_elements, container, false);
 
-        TextView main_name_tv,main_tv_description;
+        TextView main_name_tv, main_tv_description;
         LottieAnimationView lottieAnimationView;
         lottieAnimationView = main_vp_view.findViewById(R.id.lottie_view_id);
         main_name_tv = main_vp_view.findViewById(R.id.category_name_tv_id);
@@ -58,35 +65,39 @@ public class Main_Vp_Adapter extends PagerAdapter {
         lottieAnimationView.setAnimation(Main_Vp_names_list.get(position).getVp_image());
         main_name_tv.setText(Main_Vp_names_list.get(position).getVp_name());
         main_tv_description.setText(Main_Vp_names_list.get(position).getVp_description());
-        container.addView(main_vp_view,0);
+        container.addView(main_vp_view, 0);
 
         main_vp_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
 
-                if(position==1)
-                {
-                    MainActivity.j=1;
-                    Intent intent = new Intent(v.getContext(),DisplayActivity.class);
-                    v.getContext().startActivity(intent);
+                if (position == 1) {
+                    MainActivity.j = 1;
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    String uid = user.getUid().trim();
+
+                    if (uid != null) {
+                        Intent intent = new Intent(v.getContext(), DisplayActivity.class);
+                        v.getContext().startActivity(intent);
+                    } else {
+                        Toasty.error(v.getContext().getApplicationContext(), "Error connecting to database! Please try again later! ", Toasty.LENGTH_SHORT, true).show();
+                    }
                 }
-                if(position==2)
-                {
-                    Intent intent1 = new Intent(v.getContext(),QRCode_Generator.class);
+                if (position == 2) {
+                    Intent intent1 = new Intent(v.getContext(), QRCode_Generator.class);
                     v.getContext().startActivity(intent1);
                 }
-                if(position==3) {
+                if (position == 3) {
                     Intent i = new Intent(v.getContext(), QRCode_Scanner.class);
                     v.getContext().startActivity(i);
                 }
-                if(position==4)
-                {
-                    Intent intent1 = new Intent(v.getContext(),AddPlacesMain.class);
+                if (position == 4) {
+                    Intent intent1 = new Intent(v.getContext(), AddPlacesMain.class);
                     v.getContext().startActivity(intent1);
                 }
-                if(position==5)
-                {
-                    Intent intent1 = new Intent(v.getContext(),Footprints_Category.class);
+                if (position == 5) {
+                    Intent intent1 = new Intent(v.getContext(), Footprints_Category.class);
                     v.getContext().startActivity(intent1);
                 }
             }

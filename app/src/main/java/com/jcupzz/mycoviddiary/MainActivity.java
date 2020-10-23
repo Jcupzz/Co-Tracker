@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +28,7 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +37,14 @@ import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     ViewPager viewPager;
     Main_Vp_Adapter adapter;
     List<Main_Vp_Names> main_vp_list_names;
     public static int j = 0;
     private static final int PERMISSIONS_REQUEST = 1;
-
+    String uid;
 
 
     @Override
@@ -63,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+         uid = user.getUid().trim();
+
+        SharedPreferences save_uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
+        SharedPreferences.Editor uid_editor = save_uid_sharedprefs.edit();
+        uid_editor.putString("uid", uid);
+        uid_editor.commit();
 
         main_vp_list_names = new ArrayList<Main_Vp_Names>();
         main_vp_list_names.add(new Main_Vp_Names("", "", R.raw.spider_lottie));

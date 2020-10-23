@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -32,6 +33,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class DisplayActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -41,11 +44,11 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
     String uid;
     SharedPreferences uid_sharedprefs;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
-@Override
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
-
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -71,21 +74,29 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
 //        String email_id = (shared.getString("email", "crashed"));
 
 
-//        uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
-//        uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
+        uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
+        uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Login_Info.userID);
-    ValueEventListener valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
-setMarker(snapshot);
+        Toast.makeText(getApplicationContext(), uid, Toast.LENGTH_LONG).show();
+
+        if(uid!=null) {
+
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(uid);
+            ValueEventListener valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    setMarker(snapshot);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
-    }
-});
+        else{
+            Toasty.error(getApplicationContext(),"Error connecting to database! Please try again later!",Toasty.LENGTH_SHORT,true).show();
+        }
 
     }
 
@@ -117,37 +128,36 @@ setMarker(snapshot);
 
 
         Intent intent = getIntent();
-       double la = intent.getDoubleExtra("la",0);
-       double lo = intent.getDoubleExtra("lo",0);
+        double la = intent.getDoubleExtra("la", 0);
+        double lo = intent.getDoubleExtra("lo", 0);
 
-       if(MainActivity.j==1) {
-           LatLng location = new LatLng(mlatitude, mlongitude);
-           if (!mMarkers.containsKey(key)) {
-               mMarkers.put(key, mMap.addMarker(new MarkerOptions().title(key).position(location)));
-           } else {
-               mMarkers.get(key).setPosition(location);
-           }
-           LatLngBounds.Builder builder = new LatLngBounds.Builder();
-           for (Marker marker : mMarkers.values()) {
-               builder.include(marker.getPosition());
-           }
-           mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 300));
-       }
-       if(MainActivity.j==2)
-       {
-           LatLng locations = new LatLng(la, lo);
-           if(!mMarkers.containsKey(key)) {
-           mMarkers.put(key, mMap.addMarker(new MarkerOptions().title(key).position(locations)));
-       } else {
-           mMarkers.get(key).setPosition(locations);
-       }
-           LatLngBounds.Builder builders = new LatLngBounds.Builder();
-           for (Marker marker : mMarkers.values()) {
-               builders.include(marker.getPosition());
-           }
-           mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builders.build(), 300));
+        if (MainActivity.j == 1) {
+            LatLng location = new LatLng(mlatitude, mlongitude);
+            if (!mMarkers.containsKey(key)) {
+                mMarkers.put(key, mMap.addMarker(new MarkerOptions().title(key).position(location)));
+            } else {
+                mMarkers.get(key).setPosition(location);
+            }
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            for (Marker marker : mMarkers.values()) {
+                builder.include(marker.getPosition());
+            }
+            mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 300));
+        }
+        if (MainActivity.j == 2) {
+            LatLng locations = new LatLng(la, lo);
+            if (!mMarkers.containsKey(key)) {
+                mMarkers.put(key, mMap.addMarker(new MarkerOptions().title(key).position(locations)));
+            } else {
+                mMarkers.get(key).setPosition(locations);
+            }
+            LatLngBounds.Builder builders = new LatLngBounds.Builder();
+            for (Marker marker : mMarkers.values()) {
+                builders.include(marker.getPosition());
+            }
+            mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builders.build(), 300));
 
-       }
+        }
 
     }
 

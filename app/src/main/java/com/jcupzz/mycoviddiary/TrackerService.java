@@ -19,6 +19,7 @@ import android.location.Location;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -38,6 +39,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.IOException;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -51,7 +53,7 @@ public class TrackerService extends Service {
     FirebaseFirestore db, live_db;
     SharedPreferences shared;
     SharedPreferences uid_sharedprefs;
-    String address;
+    String address,uid;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -115,7 +117,7 @@ public class TrackerService extends Service {
     private void requestLocationUpdates() {
 
         LocationRequest request = new LocationRequest();
-        request.setInterval(900000);//900000
+        request.setInterval(60000);//900000
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(this);
 
@@ -129,11 +131,14 @@ public class TrackerService extends Service {
                 @Override
                 public void onLocationResult(LocationResult locationResult) {
 
-//                    uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
-//                    String uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
+
+                    uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
+                    uid = (uid_sharedprefs.getString("uid", "uid_shareprefs_crashed"));
+
+                    Toast.makeText(getApplicationContext(),uid,Toast.LENGTH_SHORT).show();
 
 
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Login_Info.userID);
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference(uid);
                     Location location = locationResult.getLastLocation();
                     if (location != null) {
                         Log.d(TAG, "location update " + location);

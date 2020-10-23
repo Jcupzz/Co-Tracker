@@ -92,11 +92,14 @@ public class Login_Info extends AppCompatActivity {
                             Toasty.success(Login_Info.this, "User Created", Toast.LENGTH_SHORT, true).show();
 
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                            userID = currentUser.getUid();
+                            userID = currentUser.getUid().trim();
+
+                            Toast.makeText(getApplicationContext(),userID,Toast.LENGTH_LONG).show();
                             SharedPreferences save_uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
                             SharedPreferences.Editor uid_editor = save_uid_sharedprefs.edit();
                             uid_editor.putString("uid", userID);
                             uid_editor.commit();
+
                             Intent intent = new Intent(Login_Info.this,MainActivity.class);
                             startActivity(intent);
 

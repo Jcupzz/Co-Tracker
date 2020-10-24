@@ -42,6 +42,7 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
     private HashMap<String, Marker> mMarkers = new HashMap<>();
     private GoogleMap mMap;
     String uid;
+    public static int j = 0;
     SharedPreferences uid_sharedprefs;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
@@ -130,7 +131,7 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
         double la = intent.getDoubleExtra("la", 0);
         double lo = intent.getDoubleExtra("lo", 0);
 
-        if (MainActivity.j == 1) {
+        if (DisplayActivity.j == 1||DisplayActivity.j==0) {
             LatLng location = new LatLng(mlatitude, mlongitude);
             if (!mMarkers.containsKey(key)) {
                 mMarkers.put(key, mMap.addMarker(new MarkerOptions().title(key).position(location)));
@@ -143,7 +144,7 @@ public class DisplayActivity extends FragmentActivity implements OnMapReadyCallb
             }
             mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 300));
         }
-        if (MainActivity.j == 2) {
+        if (DisplayActivity.j == 2) {
             LatLng locations = new LatLng(la, lo);
             if (!mMarkers.containsKey(key)) {
                 mMarkers.put(key, mMap.addMarker(new MarkerOptions().title(key).position(locations)));

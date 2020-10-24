@@ -72,17 +72,12 @@ public class Main_Vp_Adapter extends PagerAdapter {
             public void onClick(final View v) {
 
                 if (position == 1) {
-                    MainActivity.j = 1;
-
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    String uid = user.getUid().trim();
-
-                    if (uid != null) {
+                    DisplayActivity.j = 1;
+//
+//                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                    String uid = user.getUid().trim();
                         Intent intent = new Intent(v.getContext(), DisplayActivity.class);
                         v.getContext().startActivity(intent);
-                    } else {
-                        Toasty.error(v.getContext().getApplicationContext(), "Error connecting to database! Please try again later! ", Toasty.LENGTH_SHORT, true).show();
-                    }
                 }
                 if (position == 2) {
                     Intent intent1 = new Intent(v.getContext(), QRCode_Generator.class);

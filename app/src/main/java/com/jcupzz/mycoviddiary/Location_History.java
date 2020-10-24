@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -130,13 +131,16 @@ public class Location_History extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.location_history_menu_id) {
-          final Snackbar snackbar =  Snackbar.make(coordinatorLayout, "To track your location we update your location to our database during every 10 minutes.Also don't forget to tap on the cards to view location on the map", Snackbar.LENGTH_SHORT);
-          snackbar.setAction("Ok", new View.OnClickListener() {
+          final Snackbar snackbar =  Snackbar.make(coordinatorLayout, "To track your location we update your location to our database during every 10 minutes.", Snackbar.LENGTH_SHORT);
+            snackbar.setAction("Ok", new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  snackbar.dismiss();
              }
          });
+          snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+          snackbar.getView().canScrollVertically(View.LAYOUT_DIRECTION_LTR);
+          snackbar.setDuration(10000);
           snackbar.show();
             return true;
         }

@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,11 +37,13 @@ public class Login_Info extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     EditText mEmail, mPassword;
     public static String userID;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__info);
 
+        progressBar = findViewById(R.id.login_pb_id);
         mPassword = findViewById(R.id.password);
         mEmail = findViewById(R.id.email);
         next_btn = findViewById(R.id.next_id);
@@ -84,6 +87,10 @@ public class Login_Info extends AppCompatActivity {
                     return;
                 }
 
+                if(email!=null&&password!=null) {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -94,10 +101,14 @@ public class Login_Info extends AppCompatActivity {
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                             userID = currentUser.getUid().trim();
 
+                            Uploadtodatabase uploadtodatabase = new Uploadtodatabase(password,email,userID);
+
                             SharedPreferences save_uid_sharedprefs = getSharedPreferences("uid_save", MODE_PRIVATE);
                             SharedPreferences.Editor uid_editor = save_uid_sharedprefs.edit();
                             uid_editor.putString("uid", userID);
                             uid_editor.commit();
+
+                            progressBar.setVisibility(View.GONE);
 
                             Intent intent = new Intent(Login_Info.this,MainActivity.class);
                             startActivity(intent);

@@ -41,7 +41,7 @@ holder.cardView.setOnClickListener(new View.OnClickListener() {
 
 double getlati = Double.parseDouble(downModels.get(position).getLati_S());
 double getlongi = Double.parseDouble(downModels.get(position).getLongi_S());
-MainActivity.j=2;
+DisplayActivity.j=2;
 Intent intent = new Intent(v.getContext(),DisplayActivity.class);
 intent.putExtra("la",getlati);
 intent.putExtra("lo",getlongi);

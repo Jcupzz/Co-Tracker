@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     Main_Vp_Adapter adapter;
     List<Main_Vp_Names> main_vp_list_names;
-    public static int j = 0;
     private static final int PERMISSIONS_REQUEST = 1;
     String uid;
 
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         main_vp_list_names = new ArrayList<Main_Vp_Names>();
         main_vp_list_names.add(new Main_Vp_Names("", "", R.raw.spider_lottie));
-        main_vp_list_names.add(new Main_Vp_Names("Location", "Shows your current location", R.raw.location_lottie));
+        main_vp_list_names.add(new Main_Vp_Names("Location", "Tracks your current location", R.raw.location_lottie));
         main_vp_list_names.add(new Main_Vp_Names("QRCode Generator", "Generate QRCode for shops,vehicle's,buildings....", R.raw.qr_generator_one_lottie));
         main_vp_list_names.add(new Main_Vp_Names("QRCode Scanner", "Scan QRCodes", R.raw.qrcodescanner_lottie));
 //      main_vp_list_names.add(new Main_Vp_Names("Covid Today", "Current covid status", R.raw.simple_covid_lottie));

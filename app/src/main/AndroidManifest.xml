@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jcupzz.mycoviddiary">
+    package="com.jcupzz.cotracker">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -22,17 +22,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddPlacesMain"></activity>
-        <activity android:name=".AddPlacesManually" />
-        <activity android:name=".QRCode_Docs" />
+        <activity android:name="com.jcupzz.cotracker.AddPlacesMain"></activity>
+        <activity android:name="com.jcupzz.cotracker.AddPlacesManually" />
+        <activity android:name="com.jcupzz.cotracker.QRCode_Docs" />
         <activity
-            android:name=".Scanner_History"
+            android:name="com.jcupzz.cotracker.Scanner_History"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Location_History"
+            android:name="com.jcupzz.cotracker.Location_History"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Footprints_Category"
+            android:name="com.jcupzz.cotracker.Footprints_Category"
             android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -47,20 +47,20 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".DisplayActivity"
+            android:name="com.jcupzz.cotracker.DisplayActivity"
             android:label="@string/title_activity_display" />
 
         <service
-            android:name=".TrackerService"
+            android:name="com.jcupzz.cotracker.TrackerService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".TrackerActivity" />
+        <activity android:name="com.jcupzz.cotracker.TrackerActivity" />
         <activity
-            android:name=".Already_Registered"
+            android:name="com.jcupzz.cotracker.Already_Registered"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Splash_Screen"
+            android:name="com.jcupzz.cotracker.Splash_Screen"
             android:screenOrientation="portrait"
             android:theme="@style/splash_theme">
             <intent-filter>
@@ -70,25 +70,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login_Info"
+            android:name="com.jcupzz.cotracker.Login_Info"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".QRCode_Scanner"
+            android:name="com.jcupzz.cotracker.QRCode_Scanner"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Generator"
+            android:name="com.jcupzz.cotracker.Generator"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".QRCode_Vehicle_Details"
+            android:name="com.jcupzz.cotracker.QRCode_Vehicle_Details"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".QRcode_Shop_Details"
+            android:name="com.jcupzz.cotracker.QRcode_Shop_Details"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".QRCode_Generator"
+            android:name="com.jcupzz.cotracker.QRCode_Generator"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.jcupzz.cotracker.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name=".MainActivity" />

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Covid Diary</string>
+    <string name="app_name">Co-Tracker</string>
     <string name="notification_text">The app is using your current location</string>
     <string name="title_activity_display">Map</string>
     <string name="gone">1.Generate QRCodes for shops and public vehicle\'s by entering the details in the form.\n2.Take Screenshot and print it.\n3.Take the print out and paste it infront of shop\'s or vehicle\'s where it is visible for people to scan it.</string>
@@ -9,7 +9,7 @@
     <string name="location_history_of_places_you_have_travelled">Location history of places you have travelled</string>
     <string name="history_of_shop_vehicle_s_you_have_travelled">History of shop/vehicle\'s you have travelled</string>
     <string name="no">NO CONTENT\n\nGoto to Location in the MainActivity\nand turn on location service\nto see your location history</string>
-    <string name="my_covid_diary">My Covid Diary</string>
+    <string name="co_tracker">Co-Tracker</string>
     <string name="generate_qrcode_for_shops_buildings">Generate QRCode for Shops,Buildings</string>
     <string name="generate_qrcode_for_vehicle_s">Generate QRCode for Vehicle\'s</string>
     <string name="scan">Scan</string>

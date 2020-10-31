@@ -17,7 +17,7 @@
         android:shadowDx="10"
         android:shadowDy="10"
         android:shadowRadius="8"
-        android:text="@string/my_covid_diary"
+        android:text="@string/co_tracker"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="35sp"

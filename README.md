@@ -1,8 +1,8 @@
-# My-Covid-Diary
+# Co-Tracker
 
-My covid diary is just like a diary.It's an effective measure to overcome the global pandemic,that is Covid-19.
+Co-Tracker is like a personal diary.It's an effective measure to overcome the global pandemic,that is Covid-19.
 
-My covid diary consists of the following features:-
+Co-Tracker consists of the following features:-
 
      1.Location Tracker
      2.QRCode Generator
@@ -11,7 +11,7 @@ My covid diary consists of the following features:-
     
  # 1.Location Tracker
   
-    ~Location Tracker tracks user location during every single minute and 
+    ~Location Tracker tracks user location during every 10 minutes and 
     uploads the user location to cloud,which can be viewed on google maps
     activity through the Footprints section.In Footprints section there is 
     a location history section.Inside it you can view your location history 
@@ -56,4 +56,4 @@ My covid diary consists of the following features:-
   
 <!--------------------------------------------------------------------------------------------------------------------->
 App Creator:Jacob Ranjit
-
+Available in Playstore:https://play.google.com/store/apps/details?id=com.jcupzz.cotracker

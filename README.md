@@ -1,7 +1,7 @@
 # Co-Tracker
 
 Co-Tracker is like a personal diary.It's an effective measure to overcome the global pandemic,that is Covid-19.
-
+The App automatically tracks your location and makes it easy for the user to create route maps. 
 Co-Tracker consists of the following features:-
 
      1.Location Tracker

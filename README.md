@@ -55,6 +55,17 @@ Co-Tracker consists of the following features:-
     ~Covid Today shows the current number of covid patients and other upto date details of Covid-19.
   
 <!--------------------------------------------------------------------------------------------------------------------->
-App Creator:Jacob Ranjit
+# Screenshots
+
+<p float="left">
+  <img src="assets/Screenshots/1.jpg" width="200" />
+  <img src="assets/Screenshots/2.jpg" width="200" />
+  <img src="assets/Screenshots/3.jpg" width="200" />
+  <img src="assets/Screenshots/4.jpg" width="200" />
+  <img src="assets/Screenshots/5.jpg" width="200" />
+  <img src="assets/Screenshots/6.jpg" width="200" />
+  <img src="assets/Screenshots/7.jpg" width="200" />
+  <img src="assets/Screenshots/8.jpg" width="200" />
+</p>
 
 Available in Playstore:https://play.google.com/store/apps/details?id=com.jcupzz.cotracker
